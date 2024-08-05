@@ -57,12 +57,12 @@ async function searchJobs(jobTitle) {
 
     const jobsData = response.data;
     const jobs = jobsData.data.map(job => ({
-      title: job.job_title || 'No Title',
-      company: job.employer_name || 'No Company',
-      logo: job.employer_logo || 'No Logo',
-      apply_link: job.job_apply_link || 'No Link',
-      company_website: job.employer_website || 'No Website',
-      company_linkedin: job.employer_linkedin || 'No LinkedIn',
+      title: job.job_title || null,
+      company: job.employer_name || null,
+      logo: job.employer_logo || null,
+      apply_link: job.job_apply_link || null,
+      company_website: job.employer_website || null,
+      company_linkedin: job.employer_linkedin || null,
     }));
 
     return jobs;

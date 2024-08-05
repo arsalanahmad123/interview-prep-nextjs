@@ -109,12 +109,12 @@ const Page = () => {
           {jobs?.map((job, index) => (
             <JobCard
               key={index}
-              title={job.title}
-              company={job.company}
-              logo={job.logo}
-              apply_link={job.apply_link}
-              company_website={job.company_website}
-              company_linkedin={job.company_linkedin}
+              title={job?.title}
+              company={job?.company}
+              logo={job?.logo}
+              apply_link={job?.apply_link}
+              company_website={job?.company_website}
+              company_linkedin={job?.company_linkedin}
             />
           ))}
         </div>
