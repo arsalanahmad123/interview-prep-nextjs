@@ -58,7 +58,6 @@ bash
 bash
   npm run db:studio
 
-
 Congradulations Your Local Setup is Ready
 
 ## Authors
