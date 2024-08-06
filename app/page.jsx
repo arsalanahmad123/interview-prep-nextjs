@@ -2,12 +2,13 @@ import { SignedIn } from "@clerk/nextjs";
 import { SignedOut } from "@clerk/nextjs";
 import { BriefcaseIcon, GlobeAltIcon, UserGroupIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
+import VideoPlayer from "@/components/VideoPlayer";
 
 
 export default function Home() {
   return (<>
   
-      <div className="relative isolate px-6 pt-14 lg:px-8">
+      <div className="relative isolate px-6 pt-14 lg:px-8 ">
         <div
           aria-hidden="true"
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
@@ -21,23 +22,23 @@ export default function Home() {
           />
         </div>
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-          <div className="hidden sm:mb-8 sm:flex sm:justify-center">
+          <div className="mb-8 sm:flex sm:justify-center">
             <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
               Checkout Demo on our Linkedin.{' '}
-              <a href="#" className="font-semibold text-primary">
+              <a href="https://linkedin.com/in/arsalan-ahmad-934247255" target="_blank" className="font-semibold text-primary">
                 <span aria-hidden="true" className="absolute inset-0" />
                 Demo <span aria-hidden="true">&rarr;</span>
               </a>
             </div>
           </div>
           <div className="text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-            Revolutionize Your Hiring Process with AI
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl animate-in slide-in-from-top-7 delay-300 duration-1000 lg:text-center text-left">
+            Revolutionize Your Hiring Process With AI
             </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
+            <p className="mt-6 text-lg leading-8 text-gray-600 animate-in slide-in-from-bottom-7 delay-300 duration-1000 lg:text-center text-left">
             Transform the way you conduct interviews with our advanced AI-powered system. Experience seamless multilingual support, real-time feedback, and in-depth analysis to hire the best talent efficiently.
             </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
+            <div className="mt-10 flex items-center lg:justify-center justify-start gap-x-6">
               <SignedOut>
                 <Link
                   href="/sign-up"
@@ -60,7 +61,7 @@ export default function Home() {
                   </span>
                 </Link>
               </SignedIn>
-              <Link href="mailto:awaisoem@gmail.com">
+              <Link href="mailto:thepeacedevelopers@gmail.com">
                 <span className="text-sm font-semibold leading-6 text-gray-900">
                   Contact Us <span aria-hidden="true">→</span>
                 </span>
@@ -80,9 +81,15 @@ export default function Home() {
             className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
           />
         </div>
+        <VideoPlayer />
           <FeaturesSection />
           <TargetAudienceSection />
           <GoalsSection />
+          <div className="w-fit p-5  flex flex-col absolute lg:top-56 gap-2 rounded-md animate-in slideInFromLeft delay-1000 duration-1000 " id="demo-div">
+                <h3 className="font-semibold">For testing purposes use these credentials</h3>
+                <span className="flex justify-between items-center"><span className="">Email:</span> test@gmail.com</span>
+                <span className="flex justify-between items-center"><span>Password:</span> 123456</span>
+          </div>
       </div>
         <Footer />
     </>
@@ -118,7 +125,7 @@ const TargetAudienceSection = () => {
   return (
     <section className="py-20">
       <div className="container mx-auto px-6 lg:px-8">
-        <h2 className="text-5xl font-bold text-center mb-12">Our Target Audience</h2>
+        <h2 className="text-3xl md:text-5xl font-bold text-center mb-12">Our Target Audience</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {targetAudiences.map((audience, index) => (
             <div key={index} className="relative p-8 border-2 border-gray-200 rounded-lg shadow-md bg-white">
@@ -172,13 +179,13 @@ const GoalsSection = () => {
   return (
     <section className="py-60">
       <div className="container mx-auto px-6 lg:px-8">
-        <h2 className="text-5xl font-bold text-center mb-12">Our Ambitious Goals</h2>
+        <h2 className="text-3xl md:text-5xl font-bold text-center mb-12">Our Ambitious Goals</h2>
         <div className="relative">
           <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#ff80b5] to-[#9089fc] opacity-10 rounded-xl blur-3xl"></div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Large and Prominent Grid Item */}
             <div className="relative bg-white p-8 rounded-xl shadow-2xl col-span-1 md:col-span-2 lg:col-span-2 lg:row-span-2 flex flex-col justify-between">
-              <div className="text-6xl mb-4">{goals[0].icon}</div>
+              <div className="text-6xl mb-4 ">{goals[0].icon}</div>
               <h3 className="text-3xl font-bold mb-2">{goals[0].title}</h3>
               <p className="text-lg text-gray-700">{goals[0].description}</p>
             </div>
@@ -205,7 +212,7 @@ const Footer = () => {
   return (
     <footer className="relative pt-6 bg-transparent text-center mt-auto bottom-0">
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#ff80b5] to-[#9089fc] opacity-30 transform -translate-y-1  rounded-lg"></div>
-      <p>&copy; 2024 Mockview. All rights reserved.</p>
+      <p>&copy; 2024 InterviewLingo. All rights reserved.</p>
     </footer>
   );
 };
@@ -242,7 +249,7 @@ const FeaturesSection = () => {
   return (
     <section className="py-52 bg-transparent relative">
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
-        <h2 className="text-5xl font-bold text-center mb-20">Features</h2>
+        <h2 className="text-3xl md:text-5xl font-bold text-center mb-20">Features</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <div

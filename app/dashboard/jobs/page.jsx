@@ -1,8 +1,8 @@
 'use client';
 import {useState,useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input'; // Import the Input component from Shadcn
-import JobCard from '@/components/JobCard'; // Ensure this component exists and is correctly implemented
+import { Input } from '@/components/ui/input'; 
+import JobCard from '@/components/JobCard'; 
 import { ChevronLeft } from 'lucide-react';
 import Link from 'next/link';
 
@@ -25,7 +25,6 @@ const Page = () => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-
             const data = await response.json();
             setcvText(data.text)
         } catch (error) {
@@ -87,12 +86,12 @@ const Page = () => {
                 onChange={handleFileChange}
                 className="md:w-[250px]"
               />
-            {cvText && (<Button
+            {(<Button
               type="submit"
-              disabled={loading}
+              disabled={loading || !cvText }
               className="flex items-center gap-2 hover:bg-primary hover:text-white"
             >
-              {loading? "Generating Results...":"Check Job Recommendations"}
+              {loading ? "Generating Results..." : "Check Job Recommendations"}
             </Button>)}
         </form>
 
