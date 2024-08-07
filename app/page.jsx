@@ -87,7 +87,7 @@ export default function Home() {
           <GoalsSection />
           <div className="w-fit p-5  flex flex-col absolute lg:top-56 gap-2 rounded-md animate-in slideInFromLeft delay-1000 duration-1000 " id="demo-div">
                 <h3 className="font-semibold">For testing purposes use these credentials</h3>
-                <span className="flex justify-between items-center"><span className="">Email:</span> test@gmail.com</span>
+                <span className="flex justify-between items-center"><span className="">Email:</span> thepeacedevelopers@gmail.com</span>
                 <span className="flex justify-between items-center"><span>Password:</span> 123456</span>
           </div>
       </div>
