@@ -1,6 +1,7 @@
 "use client"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { useRouter } from "next/navigation"
 import {
   Card,
   CardContent,
@@ -26,6 +27,10 @@ import { eq } from "drizzle-orm"
 
 export default function Page({ params }) {  
     const mockID = params.mockID;
+    const router = useRouter()
+    const endSession = () => {
+        router.push('/dashboard')
+    }
     return (
       <div className="grid h-screen w-full">
         <div className="flex flex-col">
@@ -35,6 +40,7 @@ export default function Page({ params }) {
               variant="destructive"
               size="sm"
               className="ml-auto gap-1.5 text-sm"
+              onClick={endSession}
             >
               End Session
             </Button>
@@ -262,7 +268,7 @@ function CallCard({mockID}) {
         <CardDescription className="text-xs truncate">ID: {mockID}</CardDescription>
     </CardHeader>
     <CardContent className="flex justify-center flex-col items-center gap-4">
-      <TimerCountdown  limitInMinutes={10} handleInterviewEnd={handleInterviewEnd} interviewStarted={interviewStarted} />
+      <TimerCountdown  limitInMinutes={2} handleInterviewEnd={handleInterviewEnd} interviewStarted={interviewStarted} />
       <Avatar className="w-48 h-48">
         <AvatarImage src="https://github.com/shadcn.png" alt="voice ai" />
         <AvatarFallback>Voice AI</AvatarFallback>
@@ -277,7 +283,7 @@ function CallCard({mockID}) {
       }
       {interviewStarted && !interviewEnded && (<>
         <Button onClick={recording ? handleStopSpeaking:handleSpeak} disabled={botSpeaking || thinking} vairant={recording ?"destructive":"primary"} className="flex-1">{recording ? "Stop Recording":"Speak to AI"}</Button>
-        <Button onClick={handleIntruppt} disabled={!botSpeaking || thinking} variant="secondary" className="flex-1">Intruppt</Button>
+        <Button onClick={handleIntruppt} disabled={!botSpeaking || thinking} variant="secondary" className="flex-1">Interrupt</Button>
       </>
       )}
       {!interviewStarted && !interviewEnded && (
